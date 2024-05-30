@@ -1,7 +1,5 @@
 # zkBridge-NFT-Tutorial
 Comprehensive tutorial on implementing cross-chain NFT transfers using zkBridge from Polyhedra Network
-markdown
-Копировать код
 # zkBridge-NFT-Tutorial
 
 ## Comprehensive Tutorial: Implementing Cross-Chain NFT Transfers with zkBridge
@@ -65,9 +63,6 @@ Step 4: Initiating the Cross-Chain Transfer
 We will use zkBridge to initiate the transfer. We need to package the NFT transfer details into a payload and send it.
 
 Example Function to Initiate Transfer:
-
-solidity
-Копировать код
 function initiateTransfer(address nftContract, uint256 tokenId, address recipient, uint16 dstChainId) external {
     // Encode transfer details
     bytes memory payload = abi.encode(nftContract, tokenId, recipient, dstChainId);
@@ -93,9 +88,6 @@ Step 6: Receiving and Processing the NFT on the Receiver Chain
 On the receiver chain, use the zkBridge interface to receive and process the NFT transfer.
 
 Example Function to Receive and Process:
-
-solidity
-Копировать код
 function zkReceive(uint16 srcChainId, bytes32 srcBlockHash, bytes calldata zkProof) external {
     // Decode payload
     (address nftContract, uint256 tokenId, address recipient) = abi.decode(payload, (address, uint256, address));
